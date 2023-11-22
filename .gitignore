@@ -48,9 +48,6 @@ _deps
 
 
 ## XMake
-# Xmake cache
-.xmake/
-build/
-
-
-## Project specific
+/.xmake/
+/build/
+/CMakeLists.txt
