@@ -1,6 +1,8 @@
 #ifndef LEVILAMINA_EXAMPLE_PLUGIN_PLUGIN_H_
 #define LEVILAMINA_EXAMPLE_PLUGIN_PLUGIN_H_
 
+#include <string_view>
+
 #include <ll/api/Logger.h>
 #include <ll/api/plugin/Plugin.h>
 #include <mc/server/ServerPlayer.h>
@@ -8,10 +10,9 @@
 /// @brief Everything about the plugin.
 class Plugin {
 public:
-    /// @param pluginName The plugin name.
-    Plugin();
+    Plugin() = default;
 
-    ~Plugin();
+    ~Plugin() = default;
 
     /// @brief Loads the plugin.
     /// @param self The plugin handle.
@@ -35,14 +36,20 @@ public:
 
     /// @brief Called when a player joins the server.
     /// @param player The player.
-    void onPlayerJoin(ServerPlayer* player);
+    /// @return True if the player can join the server.
+    bool onPlayerJoin(ServerPlayer& player);
+
+    /// @brief Called after the server has started.
+    void afterServerStart();
 
 private:
-    ll::plugin::Plugin* mSelf;
+    ll::plugin::Plugin* mSelf = nullptr;
 
-    std::string_view GetName() const;
+    ll::Logger const& getLogger() const;
 
-    ll::Logger const& GetLogger() const;
+    std::string_view getName() const;
+
+    ll::plugin::Plugin& getSelf() const;
 };
 
 #endif // LEVILAMINA_EXAMPLE_PLUGIN_PLUGIN_H_

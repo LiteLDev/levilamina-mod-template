@@ -1,8 +1,0 @@
-#ifndef LEVILAMINA_EXAMPLE_PLUGIN_GLOBAL_H_
-#define LEVILAMINA_EXAMPLE_PLUGIN_GLOBAL_H_
-
-#include <Plugin.h>
-
-extern Plugin plugin;
-
-#endif // LEVILAMINA_EXAMPLE_PLUGIN_GLOBAL_H_

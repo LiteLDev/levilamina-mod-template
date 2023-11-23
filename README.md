@@ -2,7 +2,7 @@
 
 A LeviLamina plugin example
 
-This plugin is a simple example of how to create a plugin for LeviLamina. This plugin will show welcome messages and provide new players with a set of starter items.
+This plugin is a simple example of how to create a plugin for LeviLamina. This plugin will show welcome messages.
 
 ## Install
 
@@ -22,19 +22,9 @@ Before installing this plugin, make sure that you have installed XMake and a Min
 
 Run the Minecraft Bedrock Server with LeviLamina.
 
+When the game starts, a welcome message will be sent to the server console.
+
 When a player joins the server, a welcome message will be sent to them.
-
-When a player joins the server for the first time, they will be given a collection of items listed below:
-
-- a leather helment
-- a leather chestplate
-- a leather pair of leggings
-- a leather pair of boots
-- a wooden sword
-- a wooden pickaxe
-- a wooden axe
-- a wooden shovel
-- a wooden hoe
 
 ## Contributing
 

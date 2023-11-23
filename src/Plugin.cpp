@@ -1,34 +1,22 @@
 #include <Plugin.h>
-#include <fmt/format.h>
-#include <iostream>
-#include <mc/server/ServerPlayer.h>
+
 #include <stdexcept>
 #include <string_view>
 
-Plugin::Plugin(std::string_view plugin_name) : mSelf(nullptr), mPluginName(plugin_name) {}
-
-Plugin::~Plugin() = default;
-
-ll::Logger const& Plugin::getLogger() const {
-    if (this->mSelf == nullptr) {
-        throw std::runtime_error("Plugin::getLogger() called before Plugin::load()");
-    }
-    return this->mSelf->getLogger();
-}
-
-std::string_view Plugin::GetName() const { return this->mPluginName; }
+#include <fmt/format.h>
+#include <ll/api/plugin/Plugin.h>
+#include <mc/server/ServerInstance.h>
+#include <mc/server/ServerPlayer.h>
 
 bool Plugin::load(ll::plugin::Plugin& self) {
     if (this->mSelf != nullptr) {
-        throw std::runtime_error("Plugin::load() called twice");
+        throw std::runtime_error("plugin is loaded twice");
     }
 
     // Set the plugin handle.
     this->mSelf = &self;
 
-    // Log the successful load.
     this->getLogger().info("Plugin loaded");
-
     return true;
 }
 
@@ -47,7 +35,22 @@ bool Plugin::disable(ll::plugin::Plugin& self) {
     return true;
 }
 
-void Plugin::onPlayerJoin(ServerPlayer* player) {
-    this->getLogger().info(fmt::format("{} joined the server", player->getRealName()));
-    player->sendMessage(fmt::format("Hello, {}!", player->getRealName()));
+bool Plugin::onPlayerJoin(ServerPlayer& player) {
+    this->getLogger().info(fmt::format("{} joined the server", player.getRealName()));
+
+    player.sendMessage(fmt::format("Hello, {}!", player.getRealName()));
+}
+
+void Plugin::afterServerStart() { this->getLogger().info("Server started."); }
+
+ll::Logger const& Plugin::getLogger() const { return this->getSelf().getLogger(); }
+
+std::string_view Plugin::getName() const { return this->getSelf().getManifest().name; }
+
+ll::plugin::Plugin& Plugin::getSelf() const {
+    if (this->mSelf == nullptr) {
+        throw std::runtime_error("plugin is called before being loaded or after being unloaded");
+    }
+
+    return *this->mSelf;
 }
