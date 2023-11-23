@@ -36,3 +36,8 @@ target("plugin")
     set_languages("cxx20")
     set_plat("windows")
     set_toolchains("msvc")
+
+    after_build(function (target)
+        local plugin_packer = import("plugin_packer")
+        plugin_packer.pack_plugin(target)
+    end)
