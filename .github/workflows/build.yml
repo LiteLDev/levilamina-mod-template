@@ -24,4 +24,5 @@ jobs:
         with:
           name: levilamina-example-plugin-windows-x64-${{ github.sha }}
           path: |
-            build/windows/x64/release/plugin.dll
+            bin/levilamina-example-plugin/manifest.json
+            bin/levilamina-example-plugin/plugin.dll

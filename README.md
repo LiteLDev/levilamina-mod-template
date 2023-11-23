@@ -12,11 +12,7 @@ Before installing this plugin, make sure that you have installed XMake and a Min
 
 2. Run `xmake` in the root of the repository.
 
-3. Create a folder named `levilamina-example-plugin` in `plugins` directory of the Minecraft Bedrock Server.
-
-4. Copy `plugin.dll` from `build/windows/x64/release/` to `plugins/levilamina-example-plugin/`.
-
-5. Copy `manifest.json` to `plugins/levilamina-example-plugin/`.
+3. Copy all files from `bin/` to `plugins/` in the Minecraft Bedrock Server folder.
 
 ## Usage
 
