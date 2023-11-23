@@ -2,7 +2,7 @@
 
 A LeviLamina plugin example
 
-This plugin is a simple example of how to create a plugin for LeviLamina. This plugin will show welcome messages.
+This plugin is a simple example of how to create a plugin for LeviLamina. This plugin will log a message when the server starts and when a player joins the server.
 
 ## Install
 
@@ -24,7 +24,7 @@ Run the Minecraft Bedrock Server with LeviLamina.
 
 When the game starts, a welcome message will be sent to the server console.
 
-When a player joins the server, a welcome message will be sent to them.
+When a player joins the server, a message will be sent to the server console.
 
 ## Contributing
 

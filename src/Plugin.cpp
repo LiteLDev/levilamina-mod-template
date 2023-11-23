@@ -36,9 +36,9 @@ bool Plugin::disable(ll::plugin::Plugin& self) {
 }
 
 bool Plugin::onPlayerJoin(ServerPlayer& player) {
-    this->getLogger().info(fmt::format("{} joined the server", player.getRealName()));
+    this->getLogger().info(fmt::format("{} joined the server", player.getName()));
 
-    player.sendMessage(fmt::format("Hello, {}!", player.getRealName()));
+    return true;
 }
 
 void Plugin::afterServerStart() { this->getLogger().info("Server started."); }
