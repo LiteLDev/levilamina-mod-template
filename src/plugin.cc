@@ -1,9 +1,34 @@
-#include <ll/api/plugin/Plugin.h>
+#include <plugin.h>
 
-extern "C" bool ll_plugin_load(ll::plugin::Plugin &self) { return true; }
+#include <iostream>
+#include <string_view>
 
-extern "C" bool ll_plugin_unload(ll::plugin::Plugin &self) { return true; }
+Plugin::Plugin(std::string_view plugin_name)
+    : logger_(plugin_name), plugin_name_(plugin_name) {}
 
-extern "C" bool ll_plugin_enable(ll::plugin::Plugin &self) { return true; }
+Plugin::~Plugin() = default;
 
-extern "C" bool ll_plugin_disable(ll::plugin::Plugin &self) { return true; }
+ll::Logger const &Plugin::GetLogger() const { return this->logger_; }
+
+std::string_view Plugin::GetName() const { return this->plugin_name_; }
+
+bool Plugin::Load(ll::plugin::Plugin &self) {
+  this->logger_.info("Test");
+  this->logger_.info("{} loaded!", this->plugin_name_);
+  return true;
+}
+
+bool Plugin::Unload(ll::plugin::Plugin &self) {
+  this->logger_.info("{} unloaded!", this->plugin_name_);
+  return true;
+}
+
+bool Plugin::Enable(ll::plugin::Plugin &self) {
+  this->logger_.info("{} enabled!", this->plugin_name_);
+  return true;
+}
+
+bool Plugin::Disable(ll::plugin::Plugin &self) {
+  this->logger_.info("{} disabled!", this->plugin_name_);
+  return true;
+}
