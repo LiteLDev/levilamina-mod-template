@@ -3,7 +3,6 @@
 #include <stdexcept>
 #include <string_view>
 
-#include <fmt/format.h>
 #include <ll/api/plugin/Plugin.h>
 #include <mc/server/ServerInstance.h>
 #include <mc/server/ServerPlayer.h>
@@ -36,7 +35,7 @@ bool Plugin::disable(ll::plugin::Plugin& self) {
 }
 
 bool Plugin::onPlayerJoin(ServerPlayer& player) {
-    this->getLogger().info(fmt::format("{} joined the server", player.getName()));
+    this->getLogger().info("{} joined the server", player.getName());
 
     return true;
 }
