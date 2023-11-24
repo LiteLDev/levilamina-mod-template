@@ -1,26 +1,24 @@
-# LeviLamina Example Plugin
+# LeviLamina Plugin Template
 
-A LeviLamina plugin example
+A LeviLamina plugin template
 
-This plugin is a simple example of how to create a plugin for LeviLamina. This plugin will log a message when the server starts and when a player joins the server.
+This plugin is a template for developing LeviLamina plugins.
 
 ## Install
 
 Before installing this plugin, make sure that you have installed XMake and a Minecraft Bedrock Server with LeviLamina.
 
-1. Clone this repository into a local folder.
+1. Generate a new repository from this template.
 
-2. Run `xmake` in the root of the repository.
+1. Clone the new repository into a local folder.
 
-3. Copy all files from `bin/` to `plugins/` in the Minecraft Bedrock Server folder.
+1. Run `xmake` in the root of the repository.
+
+1. Copy all files from `bin/` to `plugins/` in the Minecraft Bedrock Server folder.
 
 ## Usage
 
 Run the Minecraft Bedrock Server with LeviLamina.
-
-When the game starts, a welcome message will be sent to the server console.
-
-When a player joins the server, a message will be sent to the server console.
 
 ## Contributing
 

@@ -4,7 +4,6 @@
 
 #include <ll/api/Logger.h>
 #include <ll/api/plugin/Plugin.h>
-#include <mc/server/ServerPlayer.h>
 
 /// @brief Everything about the plugin.
 class Plugin {
@@ -32,14 +31,6 @@ public:
     /// @param self The plugin handle.
     /// @return True if the plugin was disabled successfully.
     bool disable(ll::plugin::Plugin& self);
-
-    /// @brief Called when a player joins the server.
-    /// @param player The player.
-    /// @return True if the player can join the server.
-    bool onPlayerJoin(ServerPlayer& player);
-
-    /// @brief Called after the server has started.
-    void afterServerStart();
 
 private:
     ll::plugin::Plugin* mSelf = nullptr;

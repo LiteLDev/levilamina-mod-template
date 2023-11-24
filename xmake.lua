@@ -25,9 +25,8 @@ package("levilamina")
         import("package.tools.xmake").install(package)
     end)
 
-target("plugin")
+target("plugin") -- Change this to your plugin name.
     add_files("src/**.cpp")
-    set_symbols("debug")
     add_includedirs("include")
     add_packages("levilamina")
     add_rules("mode.debug", "mode.release")
@@ -36,14 +35,15 @@ target("plugin")
     set_kind("shared")
     set_languages("cxx20")
     set_plat("windows")
+    set_symbols("debug")
     set_toolchains("msvc")
 
     after_build(function (target)
         local plugin_packer = import("scripts.plugin_packer")
 
         local plugin_define = {
-            pluginName = target:name(), -- "plugin"
-            pluginFile = path.filename(target:targetfile()) , -- "plugin.dll"
+            pluginName = target:name(),
+            pluginFile = path.filename(target:targetfile()),
         }
         
         plugin_packer.pack_plugin(target,plugin_define)
