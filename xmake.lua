@@ -25,7 +25,7 @@ package("levilamina")
         import("package.tools.xmake").install(package)
     end)
 
-target("plugin") -- Change this to your plugin name.
+target("levilamina-plugin-template") -- Change this to your plugin name.
     add_files("src/**.cpp")
     add_includedirs("include")
     add_packages("levilamina")
