@@ -81,36 +81,35 @@ function beautify_json(value, indent)
     return json_text
 end
 
-function pack_plugin(target)
-    import("core.base.json")
-    import("core.project.config")
-    import("core.base.global")
+function string_formatter(str, variables)
+    return str:gsub("%${(.-)}", function(var)
+        return variables[var] or "${" .. var .. "}"
+    end)
+end
+
+function pack_plugin(target,plugin_define)
     import("lib.detect.find_file")
 
     local manifest_path = find_file("manifest.json", os.projectdir())
     if manifest_path then
-        local manifest = json.decode(io.readfile(manifest_path))
-        local name = manifest.name
-        if name then
-            cprint("${bright green}[Plugin Packer]: ${reset}seek plugin name from manifest.json: " .. name)
-            local bindir = path.join(os.projectdir(), "bin")
-            local outputdir = path.join(bindir, name)
-            local targetfile = path.join(outputdir, path.filename(target:targetfile()))
-            local pdbfile = path.join(outputdir, path.filename(target:targetfile()) .. ".pdb")
-            local manifestfile = path.join(outputdir, "manifest.json")
+        local manifest = io.readfile(manifest_path)
+        local bindir = path.join(os.projectdir(), "bin")
+        local outputdir = path.join(bindir, plugin_define.pluginName)
+        local targetfile = path.join(outputdir, plugin_define.pluginFile)
+        local pdbfile = path.join(outputdir, path.basename(plugin_define.pluginFile) .. ".pdb")
+        local manifestfile = path.join(outputdir, "manifest.json")
+        local oritargetfile = target:targetfile()
+        local oripdbfile = path.join(path.directory(oritargetfile), path.basename(oritargetfile) .. ".pdb")
 
-            os.mkdir(outputdir)
-            os.cp(target:targetfile(), targetfile)
-            if os.isfile(target:targetfile() .. ".pdb") then
-                os.cp(target:targetfile() .. ".pdb", pdbfile)
-            end
-            manifest.entry = path.filename(target:targetfile())
-            local formatted_json = beautify_json(manifest, 4)
-            io.writefile(manifestfile, formatted_json)
-            cprint("${bright green}[Plugin Packer]: ${reset}plugin already generated to " .. outputdir)
-        else
-            cprint("${bright yellow}warn: ${reset}not found plugin name from manifest.json!")
+        os.mkdir(outputdir)
+        os.cp(oritargetfile, targetfile)
+        if os.isfile(oripdbfile) then
+            os.cp(oripdbfile, pdbfile)
         end
+
+        formattedmanifest = string_formatter(manifest, plugin_define)
+        io.writefile(manifestfile,formattedmanifest)
+        cprint("${bright green}[Plugin Packer]: ${reset}plugin already generated to " .. outputdir)
     else
         cprint("${bright yellow}warn: ${reset}not found manifest.json in root dir!")
     end
@@ -119,5 +118,6 @@ end
 
 return {
     pack_plugin = pack_plugin,
-    beautify_json = beautify_json
+    beautify_json = beautify_json,
+    string_formatter = string_formatter
 }

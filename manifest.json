@@ -1,3 +1,4 @@
 {
-    "name": "levilamina-example-plugin"
+    "name": "${pluginName}",
+    "entry": "${pluginFile}"
 }

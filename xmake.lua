@@ -27,6 +27,7 @@ package("levilamina")
 
 target("plugin")
     add_files("src/**.cpp")
+    set_symbols("debug")
     add_includedirs("include")
     add_packages("levilamina")
     add_rules("mode.debug", "mode.release")
@@ -38,6 +39,12 @@ target("plugin")
     set_toolchains("msvc")
 
     after_build(function (target)
-        local plugin_packer = import("scripts/plugin_packer")
-        plugin_packer.pack_plugin(target)
+        local plugin_packer = import("scripts.plugin_packer")
+
+        local plugin_define = {
+            pluginName = target:name(), -- "plugin"
+            pluginFile = path.filename(target:targetfile()) , -- "plugin.dll"
+        }
+        
+        plugin_packer.pack_plugin(target,plugin_define)
     end)
