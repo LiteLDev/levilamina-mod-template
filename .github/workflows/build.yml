@@ -24,4 +24,4 @@ jobs:
         with:
           name: levilamina-example-plugin-windows-x64-${{ github.sha }}
           path: |
-            bin/levilamina-example-plugin/
+            bin/
