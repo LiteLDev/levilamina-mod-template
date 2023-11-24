@@ -22,6 +22,6 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          name: levilamina-example-plugin-windows-x64-${{ github.sha }}
+          name: ${{ github.event.repository.name }}-windows-x64-${{ github.sha }}
           path: |
             bin/

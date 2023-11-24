@@ -22,7 +22,7 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          name: levilamina-example-plugin-windows-x64-${{ github.sha }}
+          name: ${{ github.event.repository.name }}-windows-x64-${{ github.sha }}
           path: |
             bin/
 
@@ -37,7 +37,7 @@ jobs:
 
       - uses: actions/download-artifact@v3
         with:
-          name: levilamina-example-plugin-windows-x64-${{ github.sha }}
+          name: ${{ github.event.repository.name }}-windows-x64-${{ github.sha }}
           path: release/
 
       - run: |
@@ -46,11 +46,11 @@ jobs:
       - name: Archive release
         run: |
           cd release
-          zip -r ../levilamina-example-plugin-windows-x64.zip *
+          zip -r ../${{ github.event.repository.name }}-windows-x64.zip *
           cd ..
 
       - uses: softprops/action-gh-release@v1
         with:
           append_body: true
           files: |
-            levilamina-example-plugin-windows-x64.zip
+            ${{ github.event.repository.name }}-windows-x64.zip

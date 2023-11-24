@@ -1,5 +1,4 @@
-#ifndef LEVILAMINA_EXAMPLE_PLUGIN_PLUGIN_H_
-#define LEVILAMINA_EXAMPLE_PLUGIN_PLUGIN_H_
+#pragma once
 
 #include <string_view>
 
@@ -51,5 +50,3 @@ private:
 
     ll::plugin::Plugin& getSelf() const;
 };
-
-#endif // LEVILAMINA_EXAMPLE_PLUGIN_PLUGIN_H_
