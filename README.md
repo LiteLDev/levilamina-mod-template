@@ -4,21 +4,21 @@ A LeviLamina plugin template
 
 This plugin is a template for developing LeviLamina plugins.
 
-## Install
+## Usage
 
-Before installing this plugin, make sure that you have installed XMake and a Minecraft Bedrock Server with LeviLamina.
+Before using this plugin template, make sure that you have installed XMake and a Minecraft Bedrock Server with LeviLamina.
 
 1. Generate a new repository from this template.
 
 1. Clone the new repository into a local folder.
 
+1. Change the plugin name in `xmake.lua`.
+
+1. Add your code.
+
 1. Run `xmake` in the root of the repository.
 
-1. Copy all files from `bin/` to `plugins/` in the Minecraft Bedrock Server folder.
-
-## Usage
-
-Run the Minecraft Bedrock Server with LeviLamina.
+Now the build is complete at `bin/`.
 
 ## Contributing
 
