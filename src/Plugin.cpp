@@ -4,8 +4,6 @@
 #include <string_view>
 
 #include <ll/api/plugin/Plugin.h>
-#include <mc/server/ServerInstance.h>
-#include <mc/server/ServerPlayer.h>
 
 bool Plugin::load(ll::plugin::Plugin& self) {
     if (this->mSelf != nullptr) {
