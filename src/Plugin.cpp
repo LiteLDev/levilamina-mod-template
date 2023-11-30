@@ -5,41 +5,59 @@
 
 #include <ll/api/plugin/Plugin.h>
 
+namespace pluginns {
+
 bool Plugin::load(ll::plugin::Plugin& self) {
     if (this->mSelf != nullptr) {
         throw std::runtime_error("plugin is loaded twice");
     }
 
-    // Set the plugin handle.
     this->mSelf = &self;
 
     // Code for loading the plugin goes here.
 
-    this->getLogger().info("Plugin loaded");
     return true;
 }
 
 bool Plugin::unload(ll::plugin::Plugin& self) {
+    if (this->mSelf == nullptr) {
+        throw std::runtime_error("plugin is unloaded twice");
+    }
+    if (this->mSelf != &self) {
+        throw std::runtime_error("plugin is unloaded by a different instance");
+    }
 
     // Code for unloading the plugin goes here.
 
-    this->getLogger().info("Plugin unloaded");
+    this->mSelf = nullptr;
     return true;
 }
 
 bool Plugin::enable(ll::plugin::Plugin& self) {
+    if (this->mSelf == nullptr) {
+        throw std::runtime_error("plugin is enabled before being loaded or after being unloaded");
+    }
+    if (this->mSelf != &self) {
+        throw std::runtime_error("plugin is enabled by a different instance");
+    }
 
     // Code for enabling the plugin goes here.
 
-    this->getLogger().info("Plugin enabled");
+    this->mIsEnabled = true;
     return true;
 }
 
 bool Plugin::disable(ll::plugin::Plugin& self) {
+    if (this->mSelf == nullptr) {
+        throw std::runtime_error("plugin is disabled before being loaded or after being unloaded");
+    }
+    if (this->mSelf != &self) {
+        throw std::runtime_error("plugin is disabled by a different instance");
+    }
 
     // Code for disabling the plugin goes here.
 
-    this->getLogger().info("Plugin disabled");
+    this->mIsEnabled = false;
     return true;
 }
 
@@ -54,3 +72,7 @@ ll::plugin::Plugin& Plugin::getSelf() const {
 
     return *this->mSelf;
 }
+
+bool Plugin::isEnabled() const { return this->mIsEnabled; }
+
+} // namespace pluginns

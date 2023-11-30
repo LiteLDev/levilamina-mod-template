@@ -2,6 +2,8 @@
 
 #include <Plugin.h>
 
+namespace pluginns {
+
 // The global plugin instance.
 Plugin plugin;
 
@@ -14,3 +16,5 @@ _declspec(dllexport) bool ll_plugin_enable(ll::plugin::Plugin& self) { return pl
 
 _declspec(dllexport) bool ll_plugin_disable(ll::plugin::Plugin& self) { return plugin.disable(self); }
 }
+
+} // namespace pluginns
