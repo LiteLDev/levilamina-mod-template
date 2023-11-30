@@ -5,7 +5,7 @@
 #include <ll/api/Logger.h>
 #include <ll/api/plugin/Plugin.h>
 
-namespace pluginns {
+namespace plugins {
 
 class Plugin {
 public:
@@ -56,4 +56,4 @@ private:
     ll::plugin::Plugin* mSelf = nullptr;
 };
 
-} // namespace pluginns
+} // namespace plugins

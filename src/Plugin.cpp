@@ -5,7 +5,7 @@
 
 #include <ll/api/plugin/Plugin.h>
 
-namespace pluginns {
+namespace plugins {
 
 bool Plugin::load(ll::plugin::Plugin& self) {
     if (this->mSelf != nullptr) {
@@ -75,4 +75,4 @@ ll::plugin::Plugin& Plugin::getSelf() const {
 
 bool Plugin::isEnabled() const { return this->mIsEnabled; }
 
-} // namespace pluginns
+} // namespace plugins
