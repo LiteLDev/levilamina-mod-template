@@ -29,7 +29,7 @@ target("levilamina-plugin-template") -- Change this to your plugin name.
     add_files("src/**.cpp")
     add_includedirs("include")
     add_packages("levilamina")
-    add_rules("mode.release")
+    add_rules("mode.release","mode.debug")
     add_shflags("/DELAYLOAD:bedrock_server.dll")
     set_arch("x64")
     set_kind("shared")
@@ -37,7 +37,7 @@ target("levilamina-plugin-template") -- Change this to your plugin name.
     set_plat("windows")
     set_symbols("debug")
     set_toolchains("msvc")
-    add_cxflags("/O2", "/utf-8", "/permissive-")
+    add_cxflags("/utf-8", "/permissive-")
 
     after_build(function (target)
         local plugin_packer = import("scripts.plugin_packer")
