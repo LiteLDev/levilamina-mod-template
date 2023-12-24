@@ -28,4 +28,4 @@ This project follows the [Contributor Covenant](https://www.contributor-covenant
 
 ## License
 
-[MIT © LiteLDev](LICENSE)
+[CC0-1.0 © LiteLDev](LICENSE)
