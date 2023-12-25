@@ -19,7 +19,7 @@ package("levilamina")
     add_deps("rapidjson 1.1.0")
 
     -- Dependencies from liteldev-repo.
-    add_deps("bdslibrary 1.20.41.02")
+    add_deps("bdslibrary 1.20.50.03")
     add_deps("ctre 3.8.1")
     add_deps("pcg_cpp 1.0.0")
     add_deps("pfr 2.1.1")
@@ -43,19 +43,30 @@ target("levilamina-plugin-template") -- Change this to your plugin name.
         "/w44738",
         "/w45204"
     )
+    add_cxxflags(
+        "-Wno-c++2b-extensions",
+        "-Wno-microsoft-cast",
+        "-Wno-pragma-system-header-outside-header",
+        {tools = {"clang_cl"}}
+    )
+    add_undefines(
+        "_DEBUG"
+    )
     add_defines(
         "_AMD64_",
         "_CRT_SECURE_NO_WARNINGS",
         "_ENABLE_CONSTEXPR_MUTEX_CONSTRUCTOR",
         "NOMINMAX",
         "UNICODE",
-        "WIN32_LEAN_AND_MEAN"
+        "WIN32_LEAN_AND_MEAN",
+        "ENTT_PACKED_PAGE=128",
+        "_HAS_CXX23=1"
     )
     add_files(
         "src/**.cpp"
     )
     add_includedirs(
-        "include"
+        "src"
     )
     add_packages(
         "levilamina"
@@ -70,7 +81,8 @@ target("levilamina-plugin-template") -- Change this to your plugin name.
     )
     set_exceptions("none")
     set_kind("shared")
-    set_languages("cxx23")
+    set_languages("c++20")
+    set_symbols("debug")
     set_strip("all")
 
     after_build(function (target)

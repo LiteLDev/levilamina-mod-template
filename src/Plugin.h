@@ -18,11 +18,6 @@ public:
     /// @return True if the plugin was loaded successfully.
     bool load(ll::plugin::Plugin& self);
 
-    /// @brief Unloads the plugin.
-    /// @param self The plugin handle.
-    /// @return True if the plugin was unloaded successfully.
-    bool unload(ll::plugin::Plugin& self);
-
     /// @brief Enables the plugin.
     /// @param self The plugin handle.
     /// @return True if the plugin was enabled successfully.
