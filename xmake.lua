@@ -1,6 +1,5 @@
 add_repositories("liteldev-repo https://github.com/LiteLDev/xmake-repo.git")
-
-add_requires("levilamina *")
+add_requires("levilamina 0.2.1") -- Change this to your expected version.
 
 if not has_config("vs_runtime") then
     set_runtimes("MD")
@@ -57,7 +56,7 @@ target("levilamina-plugin-template") -- Change this to your plugin name.
     )
     set_exceptions("none")
     set_kind("shared")
-    set_languages("c++20")
+    set_languages("cxx20")
     set_strip("all")
 
     after_build(function (target)

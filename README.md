@@ -12,7 +12,7 @@ Before using this plugin template, make sure that you have installed XMake and a
 
 1. Clone the new repository into a local folder.
 
-1. Change the plugin name in `xmake.lua`.
+1. Change the plugin name and the expected LeviLamina version in `xmake.lua`.
 
 1. Add your code.
 
