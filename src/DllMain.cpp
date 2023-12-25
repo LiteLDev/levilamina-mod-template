@@ -1,6 +1,6 @@
 #include <ll/api/plugin/Plugin.h>
 
-#include "Plugin.h"
+#include "plugin/Plugin.h"
 
 namespace plugins {
 
