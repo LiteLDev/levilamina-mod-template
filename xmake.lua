@@ -1,5 +1,5 @@
 add_repositories("liteldev-repo https://github.com/LiteLDev/xmake-repo.git")
-add_requires("levilamina 0.2.1") -- Change this to your expected version.
+add_requires("levilamina")
 
 if not has_config("vs_runtime") then
     set_runtimes("MD")
@@ -31,8 +31,7 @@ target("levilamina-plugin-template") -- Change this to your plugin name.
         "NOMINMAX",
         "UNICODE",
         "WIN32_LEAN_AND_MEAN",
-        "ENTT_PACKED_PAGE=128",
-        "_HAS_CXX23=1"
+        "ENTT_PACKED_PAGE=128"
     )
     add_files(
         "src/**.cpp"
@@ -44,9 +43,7 @@ target("levilamina-plugin-template") -- Change this to your plugin name.
         "levilamina"
     )
     add_rules(
-        "mode.debug",
-        "mode.release",
-        "mode.releasedbg"
+        "mode.release"
     )
     add_shflags(
         "/DELAYLOAD:bedrock_server.dll"
@@ -56,7 +53,7 @@ target("levilamina-plugin-template") -- Change this to your plugin name.
     )
     set_exceptions("none")
     set_kind("shared")
-    set_languages("cxx20")
+    set_languages("c++23")
     set_strip("all")
 
     after_build(function (target)
