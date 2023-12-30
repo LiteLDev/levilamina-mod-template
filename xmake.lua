@@ -32,7 +32,9 @@ target("levilamina-plugin-template") -- Change this to your plugin name.
         "UNICODE",
         "WIN32_LEAN_AND_MEAN",
         "ENTT_PACKED_PAGE=128",
-        "_HAS_CXX23=1"
+        "_HAS_CXX23=1",
+        "_HAS_CXX20=1",
+        "_HAS_CXX17=1"
     )
     add_files(
         "src/**.cpp"
