@@ -1,22 +1,18 @@
 add_repositories("liteldev-repo https://github.com/LiteLDev/xmake-repo.git")
-add_requires("levilamina")
-
-if not has_config("vs_runtime") then
-    set_runtimes("MD")
-end
+add_requires("levilamina") -- or add_requires("levilamina x.x.x") to specify target LeviLamina version
 
 target("levilamina-plugin-template") -- Change this to your plugin name.
     add_cxflags(
-        "/utf-8",
-        "/permissive-",
         "/EHa",
+        "/permissive-",
+        "/utf-8",
         "/W4",
         "/w44265",
         "/w44289",
         "/w44296",
-        "/w45263",
         "/w44738",
-        "/w45204"
+        "/w45204",
+        "/w45263"
     )
     add_cxxflags(
         "-Wno-c++2b-extensions",
@@ -28,10 +24,10 @@ target("levilamina-plugin-template") -- Change this to your plugin name.
         "_AMD64_",
         "_CRT_SECURE_NO_WARNINGS",
         "_ENABLE_CONSTEXPR_MUTEX_CONSTRUCTOR",
+        "ENTT_PACKED_PAGE=128",
         "NOMINMAX",
         "UNICODE",
-        "WIN32_LEAN_AND_MEAN",
-        "ENTT_PACKED_PAGE=128"
+        "WIN32_LEAN_AND_MEAN"
     )
     add_files(
         "src/**.cpp"
@@ -43,7 +39,9 @@ target("levilamina-plugin-template") -- Change this to your plugin name.
         "levilamina"
     )
     add_rules(
-        "mode.release"
+        "mode.debug",
+        "mode.release",
+        "mode.releasedbg"
     )
     add_shflags(
         "/DELAYLOAD:bedrock_server.dll"
@@ -53,11 +51,10 @@ target("levilamina-plugin-template") -- Change this to your plugin name.
     )
     set_exceptions("none")
     set_kind("shared")
-    set_languages("c++23")
-    set_strip("all")
+    set_languages("cxx23")
 
     after_build(function (target)
-        local plugin_packer = import("scripts.plugin_packer")
+        local plugin_packer = import("scripts.after_build")
 
         local plugin_define = {
             pluginName = target:name(),

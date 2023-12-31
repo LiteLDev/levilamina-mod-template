@@ -2,7 +2,7 @@
 
 #include <ll/api/plugin/NativePlugin.h>
 
-namespace plugin_template {
+namespace plugin {
 
 class Plugin {
 public:
@@ -25,4 +25,4 @@ private:
     ll::plugin::NativePlugin& mSelf;
 };
 
-} // namespace plugin_template
+} // namespace plugin
