@@ -22,7 +22,7 @@ target("plugin") -- Change this to your plugin name.
     )
     set_exceptions("none")
     set_kind("shared")
-    set_languages("cxx23")
+    set_languages("cxx20")
 
     after_build(function (target)
         local plugin_packer = import("scripts.after_build")
