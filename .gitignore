@@ -555,4 +555,6 @@ fabric.properties
 
 
 # Project specific ignores
+/.idea/
+/.vscode/
 /bin/
