@@ -8,6 +8,9 @@ target("plugin") -- Change this to your plugin name.
         "/EHa",
         "/utf-8"
     )
+    add_defines(
+        "_HAS_CXX23=1" -- To enable C++23 features
+    )
     add_files(
         "src/**.cpp"
     )
@@ -18,11 +21,11 @@ target("plugin") -- Change this to your plugin name.
         "levilamina"
     )
     add_shflags(
-        "/DELAYLOAD:bedrock_server.dll"
+        "/DELAYLOAD:bedrock_server.dll" -- Magic to import symbols from BDS
     )
-    set_exceptions("none")
+    set_exceptions("none") -- To avoid conflicts with /EHa
     set_kind("shared")
-    set_languages("cxx23")
+    set_languages("cxx20")
 
     after_build(function (target)
         local plugin_packer = import("scripts.after_build")
