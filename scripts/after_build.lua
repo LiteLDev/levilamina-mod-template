@@ -85,14 +85,14 @@ end
 function pack_plugin(target,plugin_define)
     import("lib.detect.find_file")
 
-    local manifest_path = find_file("manifest.json", os.projectdir())
+    local manifest_path = find_file("manifest_template.json", os.projectdir())
     if manifest_path then
         local manifest = io.readfile(manifest_path)
         local bindir = path.join(os.projectdir(), "bin")
         local outputdir = path.join(bindir, plugin_define.pluginName)
         local targetfile = path.join(outputdir, plugin_define.pluginFile)
         local pdbfile = path.join(outputdir, path.basename(plugin_define.pluginFile) .. ".pdb")
-        local manifestfile = path.join(outputdir, "manifest.json")
+        local manifestfile = path.join(outputdir, "manifest_template.json")
         local oritargetfile = target:targetfile()
         local oripdbfile = path.join(path.directory(oritargetfile), path.basename(oritargetfile) .. ".pdb")
 
@@ -106,7 +106,7 @@ function pack_plugin(target,plugin_define)
         io.writefile(manifestfile,formattedmanifest)
         cprint("${bright green}[Plugin Packer]: ${reset}plugin already generated to " .. outputdir)
     else
-        cprint("${bright yellow}warn: ${reset}not found manifest.json in root dir!")
+        cprint("${bright yellow}warn: ${reset}not found manifest_template.json in root dir!")
     end
 end
 
