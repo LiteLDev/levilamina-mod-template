@@ -25,3 +25,18 @@ jobs:
           name: ${{ github.event.repository.name }}-windows-x64-${{ github.sha }}
           path: |
             bin/
+
+  check-style:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - run: |
+          npm install clang-format@1.8.0
+
+      - run: |
+          npx clang-format --dry-run --Werror $(find . -type f -name '*.cpp' -o -name '*.h')
