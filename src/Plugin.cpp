@@ -8,8 +8,7 @@ static std::unique_ptr<Plugin> plugin{};
 
 Plugin& Plugin::getInstance() { return *plugin; }
 
-Plugin::Plugin(ll::plugin::NativePlugin& self)
-: mSelf(self) {
+Plugin::Plugin(ll::plugin::NativePlugin& self) : mSelf(self) {
     mSelf.getLogger().info("loading...");
 
     // Code for loading the plugin goes here.
