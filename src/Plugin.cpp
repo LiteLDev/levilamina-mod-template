@@ -14,6 +14,8 @@ Plugin::Plugin(ll::plugin::NativePlugin& self) : mSelf(self) {
     // Code for loading the plugin goes here.
 }
 
+ll::plugin::NativePlugin& Plugin::getSelf() const { return mSelf; }
+
 bool Plugin::enable() {
     mSelf.getLogger().info("enabling...");
 

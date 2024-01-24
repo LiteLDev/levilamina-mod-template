@@ -17,6 +17,8 @@ public:
 
     static Plugin& getInstance();
 
+    ll::plugin::NativePlugin& getSelf() const;
+
     /// @return True if the plugin is enabled successfully.
     bool enable();
 
