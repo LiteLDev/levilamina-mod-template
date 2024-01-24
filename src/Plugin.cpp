@@ -4,6 +4,8 @@
 
 namespace plugin {
 
+Plugin::~Plugin() = default;
+
 static std::unique_ptr<Plugin> plugin{};
 
 Plugin& Plugin::getInstance() { return *plugin; }

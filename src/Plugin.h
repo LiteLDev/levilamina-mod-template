@@ -13,11 +13,11 @@ public:
     Plugin& operator=(Plugin&&)      = delete;
     Plugin& operator=(const Plugin&) = delete;
 
-    ~Plugin() = default;
+    ~Plugin(); // NOLINT(performance-trivially-destructible)
 
     static Plugin& getInstance();
 
-    ll::plugin::NativePlugin& getSelf() const;
+    [[nodiscard]] ll::plugin::NativePlugin& getSelf() const;
 
     /// @return True if the plugin is enabled successfully.
     bool enable();
