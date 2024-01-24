@@ -15,6 +15,8 @@ public:
 
     ~Plugin() = default;
 
+    static Plugin& getInstance();
+
     /// @return True if the plugin is enabled successfully.
     bool enable();
 
