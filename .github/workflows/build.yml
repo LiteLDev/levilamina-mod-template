@@ -26,17 +26,19 @@ jobs:
           path: |
             bin/
 
-  check-style:
-    runs-on: ubuntu-latest
+  check-code:
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
+      - id: cpp-linter-action
+        uses: cpp-linter/cpp-linter-action@v2
         with:
-          node-version: 18
+          files-changed-only: false
+          style: file
+          tidy-checks: ''
+          version: 17
 
-      - run: |
-          npm install clang-format@1.8.0
-
-      - run: |
-          npx clang-format --dry-run --Werror $(find . -type f -name '*.cpp' -o -name '*.h')
+      - if: ${{ steps.cpp-linter-action.outputs.checks-failed > 0 }}
+        run: |
+          exit 1
