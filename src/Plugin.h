@@ -28,9 +28,6 @@ public:
     /// @return True if the plugin is disabled successfully.
     bool disable();
 
-    // /// @return True if the plugin is unloaded successfully.
-    // bool unload();
-
 private:
     ll::plugin::NativePlugin& mSelf;
 };

@@ -39,13 +39,6 @@ bool Plugin::disable() {
     return true;
 }
 
-// bool Plugin::unload() {
-
-//     // Code for disabling the plugin goes here.
-
-//     return true;
-// }
-
 extern "C" {
 _declspec(dllexport) bool ll_plugin_load(ll::plugin::NativePlugin& self) {
     plugin = std::make_unique<plugin::Plugin>(self);
