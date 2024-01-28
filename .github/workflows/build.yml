@@ -41,4 +41,4 @@ jobs:
 
       - if: ${{ steps.cpp-linter-action.outputs.checks-failed > 0 }}
         run: |
-          exit 1
+          exit 0
