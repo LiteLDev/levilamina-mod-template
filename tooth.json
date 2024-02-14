@@ -18,8 +18,8 @@
     "files": {
         "place": [
             {
-                "src": "rename-this/*",
-                "dest": "plugins/rename-this/"
+                "src": "change-this/*",
+                "dest": "plugins/change-this/"
             }
         ]
     }
