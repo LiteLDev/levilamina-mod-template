@@ -1,12 +1,14 @@
-add_rules("mode.debug", "mode.release", "mode.releasedbg")
+add_rules("mode.debug", "mode.release")
 
 add_repositories("liteldev-repo https://github.com/LiteLDev/xmake-repo.git")
 
 add_requires("levilamina") -- You can also use a specific version with postfix x.x.x
 
-set_runtimes("MD")
+if not has_config("vs_runtime") then
+    set_runtimes("MD")
+end
 
-target("rename-this") -- Change this to your plugin name.
+target("change-this") -- Change this to your plugin name.
     add_cxflags(
         "/EHa", -- To catch both structured (asynchronous) and standard C++ (synchronous) exceptions.
         "/utf-8" -- To enable UTF-8 source code.
