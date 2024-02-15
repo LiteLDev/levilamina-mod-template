@@ -26,7 +26,7 @@ Now the build is complete at `bin/`.
 
 ## Contributing
 
-Ask questions by [creating an issue](https://github.com/LiteLDev/levilamina-plugin-template/issues/new/choose).
+Ask questions by creating an issue.
 
 PRs accepted.
 
