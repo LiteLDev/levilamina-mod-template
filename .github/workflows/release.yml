@@ -52,6 +52,7 @@ jobs:
   upload-to-release:
     needs:
       - build
+      - update-release-notes
     permissions:
       contents: write
     runs-on: ubuntu-latest
