@@ -33,6 +33,7 @@ target("change-this") -- Change this to your plugin name.
     set_exceptions("none") -- To avoid conflicts with /EHa.
     set_kind("shared")
     set_languages("cxx20")
+    set_symbols("debug")
 
     after_build(function (target)
         local plugin_packer = import("scripts.after_build")
