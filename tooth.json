@@ -1,25 +1,25 @@
 {
     "format_version": 2,
-    "tooth": "change-this",
+    "tooth": "my-plugin",
     "version": "0.0.0",
     "info": {
-        "name": "change-this",
-        "description": "change-this",
-        "author": "change-this",
+        "name": "My Plugin Name",
+        "description": "My Plugin Description",
+        "author": "My Name",
         "tags": [
             "levilamina",
             "plugin"
         ]
     },
-    "asset_url": "change-this",
+    "asset_url": "My Asset Url",
     "prerequisites": {
-        "github.com/LiteLDev/LeviLamina": "change-this"
+        "github.com/LiteLDev/LeviLamina": "My LeviLamina Dependency Version"
     },
     "files": {
         "place": [
             {
-                "src": "change-this/*",
-                "dest": "plugins/change-this/"
+                "src": "my-plugin/*",
+                "dest": "plugins/my-plugin/"
             }
         ]
     }
