@@ -7,7 +7,7 @@ namespace my_plugin {
 class MyPlugin {
 
 public:
-    static std::unique_ptr<MyPlugin>& getInstance();
+    static MyPlugin& getInstance();
 
     MyPlugin(ll::plugin::NativePlugin& self) : mSelf(self) {}
 

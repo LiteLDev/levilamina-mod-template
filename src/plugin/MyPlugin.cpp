@@ -7,9 +7,10 @@
 
 namespace my_plugin {
 
-std::unique_ptr<MyPlugin>& MyPlugin::getInstance() {
-    static std::unique_ptr<MyPlugin> instance;
-    return instance;
+static std::unique_ptr<MyPlugin> instance;
+
+MyPlugin& MyPlugin::getInstance() {
+    return *instance;
 }
 
 bool MyPlugin::load() {
@@ -32,4 +33,4 @@ bool MyPlugin::disable() {
 
 } // namespace my_plugin
 
-LL_REGISTER_PLUGIN(my_plugin::MyPlugin, my_plugin::MyPlugin::getInstance());
+LL_REGISTER_PLUGIN(my_plugin::MyPlugin, my_plugin::instance);
