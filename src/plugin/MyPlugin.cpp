@@ -9,9 +9,7 @@ namespace my_plugin {
 
 static std::unique_ptr<MyPlugin> instance;
 
-MyPlugin& MyPlugin::getInstance() {
-    return *instance;
-}
+MyPlugin& MyPlugin::getInstance() { return *instance; }
 
 bool MyPlugin::load() {
     getSelf().getLogger().info("Loading...");
