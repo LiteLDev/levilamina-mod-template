@@ -1,5 +1,6 @@
 {
     "name": "${pluginName}",
     "entry": "${pluginFile}",
+    "version": "${pluginVersion}",
     "type": "native"
 }
