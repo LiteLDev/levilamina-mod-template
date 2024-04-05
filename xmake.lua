@@ -23,14 +23,14 @@ target("my-plugin") -- Change this to your plugin name.
         "/w44738",
         "/w45204"
     )
-    add_defines("NOMINMAX", "UNICODE")
+    add_defines("NOMINMAX", "UNICODE", "_HAS_CXX23=1")
     add_files("src/**.cpp")
     add_includedirs("src")
     add_packages("levilamina")
     add_shflags("/DELAYLOAD:bedrock_server.dll") -- To use symbols provided by SymbolProvider.
     set_exceptions("none") -- To avoid conflicts with /EHa.
     set_kind("shared")
-    set_languages("c++23")
+    set_languages("c++20")
     set_symbols("debug")
 
     after_build(function (target)
