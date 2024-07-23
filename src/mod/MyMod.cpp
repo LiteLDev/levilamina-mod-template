@@ -1,29 +1,28 @@
-#include "plugin/MyPlugin.h"
+#include "mod/MyMod.h"
 
 #include <memory>
 
-#include "ll/api/plugin/NativePlugin.h"
-#include "ll/api/plugin/RegisterHelper.h"
+#include "ll/api/mod/RegisterHelper.h"
 
 namespace my_plugin {
 
-static std::unique_ptr<MyPlugin> instance;
+static std::unique_ptr<MyMod> instance;
 
-MyPlugin& MyPlugin::getInstance() { return *instance; }
+MyMod& MyMod::getInstance() { return *instance; }
 
-bool MyPlugin::load() {
+bool MyMod::load() {
     getSelf().getLogger().info("Loading...");
     // Code for loading the plugin goes here.
     return true;
 }
 
-bool MyPlugin::enable() {
+bool MyMod::enable() {
     getSelf().getLogger().info("Enabling...");
     // Code for enabling the plugin goes here.
     return true;
 }
 
-bool MyPlugin::disable() {
+bool MyMod::disable() {
     getSelf().getLogger().info("Disabling...");
     // Code for disabling the plugin goes here.
     return true;
@@ -31,4 +30,4 @@ bool MyPlugin::disable() {
 
 } // namespace my_plugin
 
-LL_REGISTER_PLUGIN(my_plugin::MyPlugin, my_plugin::instance);
+LL_REGISTER_MOD(my_plugin::MyMod, my_plugin::instance);
