@@ -19,7 +19,7 @@
         "place": [
             {
                 "src": "my-mod/*",
-                "dest": "mods/my-mod/"
+                "dest": "plugins/my-mod/"
             }
         ]
     }
