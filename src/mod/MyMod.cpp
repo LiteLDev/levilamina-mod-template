@@ -4,7 +4,7 @@
 
 #include "ll/api/mod/RegisterHelper.h"
 
-namespace my_plugin {
+namespace my_mod {
 
 static std::unique_ptr<MyMod> instance;
 
@@ -28,6 +28,6 @@ bool MyMod::disable() {
     return true;
 }
 
-} // namespace my_plugin
+} // namespace my_mod
 
-LL_REGISTER_MOD(my_plugin::MyMod, my_plugin::instance);
+LL_REGISTER_MOD(my_mod::MyMod, my_mod::instance);
