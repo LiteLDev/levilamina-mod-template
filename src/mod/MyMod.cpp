@@ -11,20 +11,20 @@ static std::unique_ptr<MyMod> instance;
 MyMod& MyMod::getInstance() { return *instance; }
 
 bool MyMod::load() {
-    getSelf().getLogger().info("Loading...");
-    // Code for loading the plugin goes here.
+    getSelf().getLogger().debug("Loading...");
+    // Code for loading the mod goes here.
     return true;
 }
 
 bool MyMod::enable() {
-    getSelf().getLogger().info("Enabling...");
-    // Code for enabling the plugin goes here.
+    getSelf().getLogger().debug("Enabling...");
+    // Code for enabling the mod goes here.
     return true;
 }
 
 bool MyMod::disable() {
-    getSelf().getLogger().info("Disabling...");
-    // Code for disabling the plugin goes here.
+    getSelf().getLogger().debug("Disabling...");
+    // Code for disabling the mod goes here.
     return true;
 }
 
