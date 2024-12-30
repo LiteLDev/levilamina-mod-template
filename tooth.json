@@ -7,8 +7,8 @@
         "description": "My Mod Description",
         "author": "My Name",
         "tags": [
-            "levilamina",
-            "mod"
+            "platform:levilamina",
+            "type:mod"
         ]
     },
     "asset_url": "My Asset Url",
