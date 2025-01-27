@@ -1,7 +1,5 @@
 #include "mod/MyMod.h"
 
-#include <memory>
-
 #include "ll/api/mod/RegisterHelper.h"
 
 namespace my_mod {
