@@ -1,28 +1,19 @@
 # LeviLamina Mod Template
 
-A LeviLamina mod template
-
-This mod is a template for developing LeviLamina mods.
-
-## Install
-
-Generate a new repository from this template.
+Mod Template for LeviLamina
 
 ## Usage
 
-Before using this mod template, make sure that you have installed XMake and a Minecraft Bedrock Server with LeviLamina.
+For detailed instructions, see the [LeviLamina Documentation](https://lamina.levimc.org/developer_guides/create_your_first_mod/)
 
-1. Clone the new repository into a local folder.
+1. Generate a new repository from this template
+2. Clone the new repository
+3. Change the mod name and the expected LeviLamina version in `xmake.lua`
+4. Add your code.
+5. Run `xmake f -y -p windows -a x64 -m release` in the root of the repository
+6. Run `xmake` to build the mod.
 
-1. Change the mod name and the expected LeviLamina version in `xmake.lua`.
-
-1. Add your code.
-
-1. Run `xmake repo -u` in the root of the repository.
-
-1. Run `xmake` to build the mod.
-
-Now the build is complete at `bin/`.
+After a successful build, you will find mod in `bin/`
 
 ## Contributing
 
