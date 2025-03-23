@@ -23,4 +23,4 @@ PRs accepted.
 
 ## License
 
-CC0-1.0 © LiteLDev
+CC0-1.0 © LeviMC(LiteLDev)
