@@ -4,7 +4,7 @@ Mod Template for LeviLamina
 
 ## Usage
 
-For detailed instructions, see the [LeviLamina Documentation](https://lamina.levimc.org/developer_guides/create_your_first_mod/)
+For detailed instructions, see the [LeviLamina Documentation](https://lamina.levimc.org/developer_guides/tutorials/create_your_first_mod/)
 
 1. Generate a new repository from this template
 2. Clone the new repository
