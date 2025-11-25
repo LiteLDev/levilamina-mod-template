@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - uses: xmake-io/github-action-setup-xmake@v1
         # with:
@@ -39,7 +39,7 @@ jobs:
   # clang-format:
   #   runs-on: windows-latest
   #   steps:
-  #     - uses: actions/checkout@v5
+  #     - uses: actions/checkout@v6
 
   #     - run: |
   #         choco install llvm -y --version=17.0.6
