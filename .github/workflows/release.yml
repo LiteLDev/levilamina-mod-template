@@ -61,7 +61,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: actions/download-artifact@v6
+      - uses: actions/download-artifact@v7
         with:
           name: ${{ github.event.repository.name }}-windows-x64-${{ github.sha }}
           path: artifact
