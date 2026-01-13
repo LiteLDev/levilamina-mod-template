@@ -38,13 +38,11 @@ target("my-mod") -- Change this to your mod name.
     add_includedirs("src")
     if is_config("target_type", "server") then
         add_defines("LL_PLAT_S")
+    --  add_includedirs("src-server")
+    --  add_files("src-server/**.cpp")
     else
         add_defines("LL_PLAT_C")
+    --  add_includedirs("src-client")
+    --  add_files("src-client/**.cpp")
     end
-    -- if is_config("target_type", "server") then
-    --     add_includedirs("src-server")
-    --     add_files("src-server/**.cpp")
-    -- else
-    --     add_includedirs("src-client")
-    --     add_files("src-client/**.cpp")
-    -- end
+
