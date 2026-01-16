@@ -6,6 +6,11 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    strategy:
+      matrix:
+        target_type:
+          - server
+          - client
     steps:
       - uses: actions/checkout@v6
 
@@ -25,26 +30,13 @@ jobs:
           xmake repo -u
 
       - run: |
-          xmake f -a x64 -m release -p windows -v -y
+          xmake f -a x64 -m release -p windows -v --target_type=${{ matrix.target_type }} -y
 
       - run: |
           xmake -v -y
 
       - uses: actions/upload-artifact@v6
         with:
-          name: ${{ github.event.repository.name }}-windows-x64-${{ github.sha }}
+          name: ${{ github.event.repository.name }}-${{ github.sha }}-${{ matrix.target_type }}-windows-x64
           path: |
             bin/
-
-  # clang-format:
-  #   runs-on: windows-latest
-  #   steps:
-  #     - uses: actions/checkout@v6
-
-  #     - run: |
-  #         choco install llvm -y --version=17.0.6
-
-  #     - name: clang-format
-  #       run: |
-  #         Get-ChildItem src/ -Filter *.cpp -Recurse | ForEach-Object { clang-format --dry-run -Werror $_.FullName; if ($LASTEXITCODE -ne 0) { exit 1; } }
-  #         Get-ChildItem src/ -Filter *.h -Recurse | ForEach-Object { clang-format --dry-run -Werror $_.FullName; if ($LASTEXITCODE -ne 0) { exit 1; } }
