@@ -1,5 +1,8 @@
 # LeviLamina Mod Template
 
+> [!WARNING]
+> Remember to change the [LICENSE](LICENSE) file when you use this template
+
 Mod Template for LeviLamina
 
 ## Usage
