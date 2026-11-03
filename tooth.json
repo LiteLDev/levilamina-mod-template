@@ -29,7 +29,7 @@
             {
               "type": "dir",
               "src": "my-mod/",
-              "dest": "plugins/my-mod/"
+              "dest": "mods/my-mod/"
             }
           ]
         }
