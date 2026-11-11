@@ -9,9 +9,7 @@ tags = []
 logo = "https://example.com/my-mod/avatar.png"
 
 # The default variant has an entry for each side: the server build for servers and the client
-# build for clients, so the mod can be installed without a variant on either side. The variants
-# "server" and "client" hold the same entries for one side each, so the mod can also be installed
-# as "<id>#server" or "<id>#client" ("<id>#client" is what LeviLauncher and older dependents use).
+# build for clients, so the mod is installed as "<id>" on either side.
 
 [[variants.""]]
 side = "server"
@@ -35,28 +33,4 @@ platform = "win-x64"
 [[variants."".assets]]
 type = "zip"
 urls = ["https://{{id}}/releases/download/v{{version}}/levilamina-mod-template-client-windows-x64.zip"]
-place = [{ src = "my-mod/", dest = "mods/my-mod/" }]
-
-[[variants.client]]
-side = "client"
-platform = "win-x64"
-
-[variants.client.deps]
-"github.com/LiteLDev/LeviLamina#client" = "26.60.*"
-
-[[variants.client.assets]]
-type = "zip"
-urls = ["https://{{id}}/releases/download/v{{version}}/levilamina-mod-template-client-windows-x64.zip"]
-place = [{ src = "my-mod/", dest = "mods/my-mod/" }]
-
-[[variants.server]]
-side = "server"
-platform = "win-x64"
-
-[variants.server.deps]
-"github.com/LiteLDev/LeviLamina" = "26.60.*"
-
-[[variants.server.assets]]
-type = "zip"
-urls = ["https://{{id}}/releases/download/v{{version}}/levilamina-mod-template-server-windows-x64.zip"]
 place = [{ src = "my-mod/", dest = "mods/my-mod/" }]
