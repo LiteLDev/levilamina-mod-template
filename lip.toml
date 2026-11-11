@@ -28,10 +28,10 @@ side = "client"
 platform = "win-x64"
 
 [variants."".deps]
-# LeviLamina 26.60.* has only tooth.json releases, whose client build is "#client". Switch this to
-# bare "github.com/LiteLDev/LeviLamina" once you target a lip.toml LeviLamina release: a lip.toml
-# dependency is never rewritten automatically.
-"github.com/LiteLDev/LeviLamina#client" = "26.60.*"
+# The bare id, not "#client": a lip.toml dependency is never rewritten, and lip.toml releases of
+# LeviLamina have no "client" variant. The range starts above 26.60.6, the last tooth.json release,
+# because the "" variant of a tooth.json release is the server build.
+"github.com/LiteLDev/LeviLamina" = ">26.60.6 <26.61.0"
 
 [[variants."".assets]]
 type = "zip"

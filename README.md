@@ -12,7 +12,7 @@ For detailed instructions, see the [LeviLamina Documentation](https://docs.levim
 1. Generate a new repository from this template
 2. Clone the new repository
 3. Change the mod name and the expected LeviLamina version in `xmake.lua`
-4. Update `lip.toml` (the [lip](https://github.com/LiteLDev/lip) package of your mod): set `id` to your repository path, `version` to the version you will release (the release tag without the leading `v`), `[info]`, the LeviLamina version range (the client entry keeps `#client` on LeviLamina while the targeted LeviLamina releases are tooth.json; see the comment in `lip.toml`), the asset file names (the release workflow uploads `<repository name>-server-windows-x64.zip` and `<repository name>-client-windows-x64.zip`) and the mod directory (the target name in `xmake.lua`)
+4. Update `lip.toml` (the [lip](https://github.com/LiteLDev/lip) package of your mod): set `id` to your repository path, `version` to the version you will release (the release tag without the leading `v`), `[info]`, the LeviLamina version ranges (the client entry depends on the bare LeviLamina id with a range above its last tooth.json release, 26.60.6; see the comment in `lip.toml`), the asset file names (the release workflow uploads `<repository name>-server-windows-x64.zip` and `<repository name>-client-windows-x64.zip`) and the mod directory (the target name in `xmake.lua`)
 5. Add your code.
 6. Run `xmake f -y -p windows -a x64 -m release` in the root of the repository
 7. Run `xmake` to build the mod.
