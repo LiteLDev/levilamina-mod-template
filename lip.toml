@@ -1,0 +1,49 @@
+format = 4
+id = "github.com/LiteLDev/levilamina-mod-template"
+version = "0.0.0"
+
+[info]
+name = "My Mod"
+description = "Description of my mod"
+tags = []
+logo = "https://example.com/my-mod/avatar.png"
+
+# The default variant has an entry for each side: the server build for servers and the client
+# build for clients. The variant "client" holds the same client entry, so that packages and
+# launchers that install or depend on "<id>#client" keep working.
+
+[[variants.""]]
+side = "server"
+platform = "win-x64"
+
+[variants."".deps]
+"github.com/LiteLDev/LeviLamina" = "26.60.*"
+
+[[variants."".assets]]
+type = "zip"
+urls = ["https://{{id}}/releases/download/v{{version}}/levilamina-mod-template-server-windows-x64.zip"]
+place = [{ src = "my-mod/", dest = "mods/my-mod/" }]
+
+[[variants.""]]
+side = "client"
+platform = "win-x64"
+
+[variants."".deps]
+"github.com/LiteLDev/LeviLamina#client" = "26.60.*"
+
+[[variants."".assets]]
+type = "zip"
+urls = ["https://{{id}}/releases/download/v{{version}}/levilamina-mod-template-client-windows-x64.zip"]
+place = [{ src = "my-mod/", dest = "mods/my-mod/" }]
+
+[[variants.client]]
+side = "client"
+platform = "win-x64"
+
+[variants.client.deps]
+"github.com/LiteLDev/LeviLamina#client" = "26.60.*"
+
+[[variants.client.assets]]
+type = "zip"
+urls = ["https://{{id}}/releases/download/v{{version}}/levilamina-mod-template-client-windows-x64.zip"]
+place = [{ src = "my-mod/", dest = "mods/my-mod/" }]
